@@ -22,8 +22,7 @@ Each audio file is processed using `librosa`:
 - A chroma STFT representation is computed
 - The chroma matrix is averaged over time to produce a 12-dimensional vector
 
-This vector represents the harmonic distribution of pitch classes (C, C#, D, ... B) across the entire audio clip.
-
+This vector represents the harmonic distribution across the 12 pitch classes in the chromatic scale (C, C#, D, D#, E, F, F#, G, G#, A, A#, B) over the duration of the audio clip.
 
 ## Preprocessing
 
@@ -50,8 +49,8 @@ Each audio sample is assigned a cluster label based on harmonic similarity.
 Cosine similarity is computed between all feature vectors to measure pairwise harmonic similarity.
 
 This produces a similarity matrix, where:
-- Values close to 1 indicate strong harmonic similarity
-- Values near 0 or negative indicate dissimilar harmonic structure
+- Values close to 1 indicate strong harmonic similarity between samples
+- Values near 0 or negative indicate weak harmonic similarity between samples
 
 
 ## Visualization
@@ -60,9 +59,9 @@ A heatmap is generated from the similarity matrix:
 
 - Each axis represents the set of audio samples
 - Each cell shows similarity between two samples
-- Brighter regions indicate stronger harmonic relationships
+- Brighter regions indicate stronger harmonic relationships between samples
 
-This visualization reveals clustering structure and harmonic grouping patterns in the dataset.
+The visualization shows clustering structure and harmonic grouping patterns in the dataset.
 
 ## Output
 
